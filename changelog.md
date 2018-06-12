@@ -1,3 +1,8 @@
+### 2.9.13
+- **[Fix]** Prevent redundant statistics logging on paginated results when using `SWP_Query`
+- **[Fix]** Better handling of taxonomy terms with special characters
+- **[Fix]** Fixes PHP Warning and PHP Notice in certain cases
+
 ### 2.9.12
 - **[Improvement]** Index better optimized when limiting to Media mime type
 - **[Improvement]** AND logic is more restrictive when applicable

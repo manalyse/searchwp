@@ -336,8 +336,7 @@ class SearchWPSearch {
 				$this->posts = $this->query();
 
 				// log this
-				$paged = get_query_var( 'paged' );
-				$paged = absint( $paged ) > 1;
+				$paged = absint( $this->page ) > 1;
 
 				// Default is to log if we're not doing an admin column nor are we paging
 				$log_default = ! $this->doing_admin_column() && ! $paged;
@@ -2845,7 +2844,7 @@ class SearchWPSearch {
 			$attributed_post_parents_sql = "
 				SELECT DISTINCT {$wpdb->posts}.post_parent
 				FROM {$wpdb->posts}
-				LEFT JOIN {$this->db_prefix}index ON {$this->db_prefix}index.post_id = wp_posts.ID
+				LEFT JOIN {$this->db_prefix}index ON {$this->db_prefix}index.post_id = {$wpdb->posts}.ID
 				LEFT JOIN {$this->db_prefix}terms ON {$this->db_prefix}terms.id = {$this->db_prefix}index.term
 				WHERE {$wpdb->posts}.post_parent > 0
 				AND (

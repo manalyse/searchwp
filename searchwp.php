@@ -3,7 +3,7 @@
 Plugin Name: SearchWP
 Plugin URI: https://searchwp.com/
 Description: The best WordPress search you can find
-Version: 2.9.12
+Version: 2.9.13
 Author: SearchWP, LLC
 Author URI: https://searchwp.com/
 Text Domain: searchwp
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SEARCHWP_VERSION', '2.9.12' );
+define( 'SEARCHWP_VERSION', '2.9.13' );
 define( 'SEARCHWP_PREFIX', 'searchwp_' );
 define( 'SEARCHWP_DBPREFIX', 'swp_' );
 define( 'SEARCHWP_EDD_STORE_URL', 'https://searchwp.com' );
@@ -4583,7 +4583,7 @@ add_filter( 'searchwp_file_content_limit', 'my_searchwp_file_content_limit' );</
 				$tax_term_ids = call_user_func_array( 'array_intersect', $tax_term_ids );
 			} else {
 				$tax_term_ids = array_values( $tax_term_ids );
-				$tax_term_ids = $tax_term_ids[0];
+				$tax_term_ids = isset( $tax_term_ids[0] ) ? $tax_term_ids[0] : array();
 			}
 
 			if ( empty( $tax_term_ids ) ) {

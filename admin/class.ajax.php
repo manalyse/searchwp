@@ -222,6 +222,7 @@ class SearchWP_Admin_Ajax {
 					'engines' => $value,
 				)
 			);
+
 			// Settings validation returns an entire settings array, but we only
 			// want the engines because that is the setting we're updating
 			$value = $value['engines'];
